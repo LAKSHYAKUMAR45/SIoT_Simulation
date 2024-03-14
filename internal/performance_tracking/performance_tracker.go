@@ -1,3 +1,10 @@
+// This file contains code for tracking performance metrics of the IoT model and simulations.
+
+// Prompt:
+// - Define a struct to represent performance metrics, including metrics such as throughput, latency, and accuracy.
+// - Implement functions for measuring and updating performance metrics during the execution of the program.
+// - Provide interfaces for accessing and reporting performance metrics.
+
 package performance_tracking
 
 import (

@@ -1,4 +1,11 @@
 // block.go
+// This file contains the definition of a block structure for the blockchain.
+
+// Prompt:
+// - Define a struct for representing a block in the blockchain.
+// - Include fields such as index, timestamp, data, previous hash, and hash.
+// - Implement functions for creating a new block, calculating the hash of a block, and validating a block's integrity.
+
 package blockchain
 
 import (

@@ -1,4 +1,11 @@
 // blockchain.go
+// This file implements the blockchain data structure and related operations.
+
+// Prompt:
+// - Define a struct for the blockchain containing a slice of blocks.
+// - Implement functions for initializing a new blockchain, adding a new block to the blockchain, validating the blockchain, and retrieving the latest block.
+// - Ensure that each new block is linked to the previous block in the blockchain.
+
 package blockchain
 
 type Blockchain struct {

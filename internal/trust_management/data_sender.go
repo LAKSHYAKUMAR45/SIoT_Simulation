@@ -1,3 +1,10 @@
+// This file contains code for sending data from the blockchain to the Trust Management Server.
+
+// Prompt:
+// - Implement functions for retrieving data from the blockchain and formatting it for transmission.
+// - Define a mechanism for sending formatted data to the Trust Management Server via a RESTful API.
+// - Handle errors and retries for reliable data transmission.
+
 package trust_management
 
 import (

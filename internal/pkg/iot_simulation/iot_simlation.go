@@ -1,3 +1,11 @@
+// This file contains code for simulating IoT devices using provided datasets.
+
+// Prompt:
+// - Define functions for reading and parsing datasets containing IoT transaction data.
+// - Implement logic for simulating IoT transactions based on the parsed data.
+// - Incorporate functionality for predicting the nature of transactions (malicious or benign) using a machine learning model.
+// - Handle transaction outcomes (carry out or abort) based on predictions.
+
 package main
 
 import (
