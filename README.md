@@ -3,23 +3,6 @@
 ## Introduction
 This project aims to simulate IoT devices using provided datasets. It includes functionalities to simulate IoT transactions, implement blockchain for data storage, send data to a Trust Management Server, and track performance metrics.
 
-## Directory Structure
-simulation/
-├── cmd/
-│   └── main.go
-└── internal/
-    ├── blockchain/
-    │   ├── block.go
-    │   └── blockchain.go
-    ├── performance_tracking/
-    │   └── performance_tracker.go
-    ├── pkg/
-    │   ├── iot_simulation/
-    │   │   └── iot_simulation.go
-    │   └── main.go
-    └── trust_management/
-        └── data_sender.go
-
 ## Functionality Overview
 - **IoT Simulation**: Simulate IoT devices using provided datasets. Code for simulating devices can be found in `internal/pkg/iot_simulation/iot_simulation.go`.
 - **Blockchain Implementation**: Implement blockchain for data storage. Code for blockchain functionality can be found in `internal/blockchain/blockchain.go`.
