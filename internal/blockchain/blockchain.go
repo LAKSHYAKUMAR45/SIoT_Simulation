@@ -1,12 +1,6 @@
-// blockchain.go
-// This file implements the blockchain data structure and related operations.
-
-// Prompt:
-// - Define a struct for the blockchain containing a slice of blocks.
-// - Implement functions for initializing a new blockchain, adding a new block to the blockchain, validating the blockchain, and retrieving the latest block.
-// - Ensure that each new block is linked to the previous block in the blockchain.
-
 package blockchain
+
+import "time"
 
 type Blockchain struct {
     Blocks []*Block
@@ -15,7 +9,7 @@ type Blockchain struct {
 // NewBlockchain creates a new blockchain with the genesis block
 func NewBlockchain() *Blockchain {
     genesisBlock := &Block{Index: 0, Timestamp: time.Now(), Data: []byte("Genesis Block"), PrevHash: ""}
-    genesisBlock.CalculateHash()
+    genesisBlock.Hash = genesisBlock.CalculateHash()
     return &Blockchain{Blocks: []*Block{genesisBlock}}
 }
 
@@ -28,7 +22,7 @@ func (bc *Blockchain) AddBlock(data []byte) {
         Data:      data,
         PrevHash:  prevBlock.Hash,
     }
-    newBlock.CalculateHash()
+    newBlock.Hash = newBlock.CalculateHash()
     bc.Blocks = append(bc.Blocks, newBlock)
 }
 

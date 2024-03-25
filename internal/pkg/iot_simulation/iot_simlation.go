@@ -110,36 +110,64 @@ func readDataset(filename string) ([]Transaction, error) {
     return transactions, nil
 }
 
-// Function to simulate IoT devices
 func simulateDevices(transactions []Transaction) {
     for _, transaction := range transactions {
         // Simulate device behavior using transaction data
         // For demonstration purposes, we're printing the details of each transaction
         fmt.Println("Simulating transaction:", transaction)
-        
-        // Example: Make a request to a prediction model API
-        predictTransaction(transaction)
-        
+
+        // Convert transaction data to JSON
+        jsonData, err := json.Marshal(transaction)
+        if err != nil {
+            fmt.Println("Error marshalling JSON:", err)
+            continue
+        }
+
+        // Make an HTTP POST request to the Flask server
+        url := "http://127.0.0.1:5000/predict"
+        resp, err := http.Post(url, "application/json", bytes.NewBuffer(jsonData))
+        if err != nil {
+            fmt.Println("Error making HTTP request:", err)
+            continue
+        }
+        defer resp.Body.Close()
+
+        // Process the response
+        var result map[string]interface{}
+        if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+            fmt.Println("Error decoding JSON response:", err)
+            continue
+        }
+
+        // Print the prediction received from the Flask server
+        prediction, ok := result["prediction"].(float64)
+        if !ok {
+            fmt.Println("Invalid prediction format received from server")
+            continue
+        }
+        fmt.Println("Prediction:", prediction)
+
         // Simulated delay between transactions
         time.Sleep(1 * time.Second)
     }
 }
 
-// Function to make a request to a prediction model API
-func predictTransaction(transaction Transaction) {
-    // Example: Make a request to a prediction model API
-    // Replace this with actual code to interact with your prediction model API
-    // For demonstration purposes, we're just printing the transaction details
-    fmt.Println("Making prediction for transaction:", transaction)
+
+// // Function to make a request to a prediction model API
+// func predictTransaction(transaction Transaction) {
+//     // Example: Make a request to a prediction model API
+//     // Replace this with actual code to interact with your prediction model API
+//     // For demonstration purposes, we're just printing the transaction details
+//     fmt.Println("Making prediction for transaction:", transaction)
     
-    // Example: HTTP POST request to prediction model API
-    // resp, err := http.Post("http://prediction-model-api/predict", "application/json", bytes.NewBuffer(jsonData))
-    // Handle response and error accordingly
-}
+//     // Example: HTTP POST request to prediction model API
+//     // resp, err := http.Post("http://prediction-model-api/predict", "application/json", bytes.NewBuffer(jsonData))
+//     // Handle response and error accordingly
+// }
 
 func main() {
     // Path to the dataset file
-    datasetFile := "converted_dataset_1.csv"
+    datasetFile := "selected_random_data.csv"
 
     // Read the dataset
     transactions, err := readDataset(datasetFile)
