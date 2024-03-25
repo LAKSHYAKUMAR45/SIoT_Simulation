@@ -9,19 +9,36 @@ This project aims to simulate IoT devices using provided datasets. It includes f
 - **Data Sending to Trust Management Server**: Send data from blockchain to the Trust Management Server. Code for data sending can be found in `internal/trust_management/data_sender.go`.
 - **Performance Tracking**: Track performance metrics of the IoT model and simulations. Code for performance tracking can be found in `internal/performance_tracking/performance_tracker.go`.
 
-## How to Use
-1. Clone the repository:
-    ```bash
-    git clone git@github.com:LAKSHYAKUMAR45/SIoT_Simulation.git
-    cd SIoT_Simulation
-    ```
-2. Run the main program:
-    ```bash
-    go run cmd/main.go
-    ```
+# SIoT Simulation
 
-## Contributing
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or create a pull request.
+This project simulates an Internet of Things (IoT) environment for security analysis. It includes components for generating simulated IoT device behavior, predicting transaction safety, and tracking performance metrics.
 
-## License
-This project is licensed under the [MIT License](LICENSE).
+## Components
+
+### 1. IoT Simulation Package (`/internal/pkg/iot_simulation`)
+
+This package contains functionality for simulating IoT devices and generating transaction data.
+
+#### Files:
+- `iot_simulation.go`: Simulates IoT devices and generates transaction data based on predefined models.
+
+### 2. Performance Tracking Package (`/internal/pkg/performance_tracking`)
+
+This package provides functionality for tracking performance metrics of the IoT model and simulations.
+
+#### Files:
+- `performance_tracker.go`: Defines a performance tracker struct for monitoring throughput, latency, prediction accuracy, false positive rate, and false negative rate. It includes methods for starting and stopping performance monitoring, as well as tracking events and logging performance data.
+
+### 3. Main Package (`/cmd/main`)
+
+The main package initializes and runs the simulation, including setting up IoT devices, starting performance tracking, and handling user interactions.
+
+#### Files:
+- `main.go`: Initializes the simulation environment, starts IoT device simulation, begins performance tracking, and handles user interactions.
+
+## Usage
+
+To run the simulation, execute the following command:
+
+```bash
+go run cmd/main/main.go
