@@ -1,0 +1,6 @@
+Epochs: 3
+Train Losses: [1.0565061877232582e-05, 1.8554639399623942e-07, 9.464281919348626e-13]
+Test Losses: [0.0, 0.0, 0.0]
+Test Accuracies: [1.0, 1.0, 1.0]
+Test F1 Scores: [1.0, 1.0, 1.0]
+Test AUCs: [1.0, 1.0, 1.0]
